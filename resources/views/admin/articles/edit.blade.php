@@ -184,7 +184,7 @@
 @endsection
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('/libs/swiper.css') }}">
+<link rel="stylesheet" href="{{ asset('/public/libs/swiper.css') }}">
 <style>
     .swiper-button-next, .swiper-button-prev {
         width: fit-content !important;
@@ -206,7 +206,7 @@
 
 @section('scripts')
 <!-- Swiper JS -->
-<script src="{{ asset('/libs/swiper.js') }}"></script>
+<script src="{{ asset('/public/libs/swiper.js') }}"></script>
 
 <!-- Initialize Swiper -->
 <script>

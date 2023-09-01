@@ -127,7 +127,7 @@
             <div class="mb-3 w-100 d-flex gap-3">
                 <div class="w-25">
                     <label for="thumbnail" class="w-100 h-100 p-3 d-flex justify-content-center align-items-center form-control" style="max-height: 170px;">
-                        <img src="{{asset('dashboard/images/add_image.svg')}}" id="preview" alt="img logo" style="width: 100%; max-width: 100%;object-fit: contain;height: 100%;">                                                
+                        <img src="{{asset('/publicdashboard/images/add_image.svg')}}" id="preview" alt="img logo" style="width: 100%; max-width: 100%;object-fit: contain;height: 100%;">                                                
                     </label>
                     <input type="file" name="thumbnail" id="thumbnail" class="d-none" @change="photoChanges">
                 </div>
@@ -183,7 +183,7 @@
 @endsection
 
 @section('styles')
-<link rel="stylesheet" href="{{ asset('/libs/swiper.css') }}">
+<link rel="stylesheet" href="{{ asset('/public/libs/swiper.css') }}">
 <style>
     .swiper-button-next, .swiper-button-prev {
         width: fit-content !important;
@@ -206,7 +206,7 @@
 
 @section('scripts')
 <!-- Swiper JS -->
-<script src="{{ asset('/libs/swiper.js') }}"></script>
+<script src="{{ asset('/public/libs/swiper.js') }}"></script>
 
 <!-- Initialize Swiper -->
 <script>

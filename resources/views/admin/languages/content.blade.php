@@ -37,7 +37,7 @@
                     <td class="border-bottom-0">
                         <div class="d-flex gap-2">
                             <button class="btn btn-secondary p-2" @click="showPopUp('home')"><h4 class="ti ti-edit text-light m-0 fw-semibold"></h4></button>
-                            <a href="{{ asset('/json/home.json') }}" download="home" class="btn btn-success p-2"><h4 class="ti ti-download text-light m-0 fw-semibold"></h4></a>
+                            <a href="{{ asset('/public/json/home.json') }}" download="home" class="btn btn-success p-2"><h4 class="ti ti-download text-light m-0 fw-semibold"></h4></a>
                         </div>
                     </td>
                 </tr>
