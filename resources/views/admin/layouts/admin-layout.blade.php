@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Moheb | dashboard | @yield('title')</title>
   @yield('styles')
-  <link rel="stylesheet" href="{{ asset('/dashboard/css/styles.min.css') }}" />
+  <link rel="stylesheet" href="{{ asset('/public/dashboard/css/styles.min.css') }}" />
   <style>
     img {
       max-width: 300px
@@ -298,7 +298,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  <img src="{{ asset('/dashboard/images/profile/user-1.jpg') }}" alt="" width="35" height="35" class="rounded-circle">
+                  <img src="{{ asset('/public/dashboard/images/profile/user-1.jpg') }}" alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
@@ -320,14 +320,14 @@
       </div>
     </div>
   </div>
-  <script src="{{ asset('/dashboard/libs/jquery/dist/jquery.min.js') }}"></script>
-  <script src="{{ asset('/dashboard/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('/dashboard/js/sidebarmenu.js') }}"></script>
-  <script src="{{ asset('/dashboard/js/app.min.js') }}"></script>
-  <script src="{{ asset('/dashboard/libs/simplebar/dist/simplebar.js') }}"></script>
-  <script src="{{ asset('/libs/vue.js') }}"></script>
-  <script src="{{ asset('/libs/jquery.js') }}"></script>
-  <script src="{{ asset('/libs/axios.js') }}"></script>
+  <script src="{{ asset('/public/dashboard/libs/jquery/dist/jquery.min.js') }}"></script>
+  <script src="{{ asset('/public/dashboard/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('/public/dashboard/js/sidebarmenu.js') }}"></script>
+  <script src="{{ asset('/public/dashboard/js/app.min.js') }}"></script>
+  <script src="{{ asset('/public/dashboard/libs/simplebar/dist/simplebar.js') }}"></script>
+  <script src="{{ asset('/public/libs/vue.js') }}"></script>
+  <script src="{{ asset('/public/libs/jquery.js') }}"></script>
+  <script src="{{ asset('/public/libs/axios.js') }}"></script>
 
   @yield('scripts')
 </body>

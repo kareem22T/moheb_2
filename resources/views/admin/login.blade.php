@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Modernize Free</title>
-    <link rel="stylesheet" href="{{ asset('/dashboard/css/styles.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/public/dashboard/css/styles.min.css') }}" />
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
 
@@ -123,12 +123,12 @@
         </div>
         </div>
     </div>
-    <script src="{{ asset('/dashboard/libs/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('/dashboard/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('/libs/vue.js') }}"></script>
-    <script src="{{ asset('/libs/jquery.js') }}"></script>
-    <script src="{{ asset('/libs/axios.js') }}"></script>
-    <script src="{{ asset('/dashboard/js/login.js') }}"></script>
+    <script src="{{ asset('/public/dashboard/libs/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('/public/dashboard/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('/public/libs/vue.js') }}"></script>
+    <script src="{{ asset('/public/libs/jquery.js') }}"></script>
+    <script src="{{ asset('/public/libs/axios.js') }}"></script>
+    <script src="{{ asset('/public/dashboard/js/login.js') }}"></script>
     
 </body>
 
