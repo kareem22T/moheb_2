@@ -142,7 +142,7 @@ createApp({
     async add(category_translations, main_name, description, cat_type, main_cat_id, thumbnail) {
       $('.loader').fadeIn().css('display', 'flex')
       try {
-        const response = await axios.post(`/admin/categories/add`, {
+        const response = await axios.post(`/Moheb/admin/categories/add`, {
           category_translations: category_translations,
           main_name: main_name,
           description: description,
@@ -165,7 +165,7 @@ createApp({
           $('#errors').fadeIn('slow')
           setTimeout(() => {
             $('#errors').fadeOut('slow')
-            window.location.href = '/admin/categories'
+            window.location.href = '/Moheb/admin/categories'
           }, 2000);
         } else {
           $('.loader').fadeOut()
@@ -202,7 +202,7 @@ createApp({
     async getLanguages() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/admin/categories/get-languages`, {
+            const response = await axios.post(`/Moheb/admin/categories/get-languages`, {
             },
             );
             if (response.data.status === true) {
@@ -243,7 +243,7 @@ createApp({
     async getCategories() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/admin/categories/`, {
+            const response = await axios.post(`/Moheb/admin/categories/`, {
             },
             );
             if (response.data.status === true) {
