@@ -177,7 +177,7 @@
     </div>
     @else
     @php
-        return redirect('/Moheb/admin/articles/preview');
+        return redirect('/admin/articles/preview');
     @endphp
     @endif
 </div>
@@ -259,7 +259,7 @@ createApp({
     async save(main_name, Article_translations, title_translations, content_translations, thumbnail, sounds_translations, cat_id, tags) {
       $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/articles/edit`, {
+            const response = await axios.post(`/admin/articles/edit`, {
                 main_name: main_name,
                 Article_translations: Article_translations,
                 title_translations: title_translations,
@@ -286,7 +286,7 @@ createApp({
             $('.loader').fadeOut()
             setTimeout(() => {
                 $('#errors').fadeOut('slow')
-                window.location.href = '/Moheb/admin/articles'
+                window.location.href = '/admin/articles'
             }, 2000);
             } else {
             $('.loader').fadeOut()
@@ -331,7 +331,7 @@ createApp({
     },
     async getTagSearch(search_words) {
         try {
-            const response = await axios.post(`/Moheb/admin/tags/search`, {
+            const response = await axios.post(`/admin/tags/search`, {
                 search_words: search_words,
             },
             );
@@ -374,7 +374,7 @@ createApp({
     async getArticle() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/article`, {
+            const response = await axios.post(`/admin/article`, {
                 article_id: this.article_id
             },
             );
@@ -424,7 +424,7 @@ createApp({
     async getImages() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.get(`/Moheb/admin/articles/get_images`
+            const response = await axios.get(`/admin/articles/get_images`
             );
             if (response.data.status === true) {
                 $('.loader').fadeOut()
@@ -464,7 +464,7 @@ createApp({
     async uploadImage(image) {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/articles/upload`, {
+            const response = await axios.post(`/admin/articles/upload`, {
                 img: image,
             },
             {
@@ -522,7 +522,7 @@ createApp({
     async getArticleTitles() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/article/titles`, {
+            const response = await axios.post(`/admin/article/titles`, {
                 article_id: this.article_id
             },
             );
@@ -564,7 +564,7 @@ createApp({
     async getArticleContent() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/article/contents`, {
+            const response = await axios.post(`/admin/article/contents`, {
                 article_id: this.article_id
             },
             );
@@ -606,7 +606,7 @@ createApp({
     async getLanguages() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/categories/get-languages`, {
+            const response = await axios.post(`/admin/categories/get-languages`, {
             },
             );
             if (response.data.status === true) {
@@ -647,7 +647,7 @@ createApp({
     async getCategories() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/categories/`, {
+            const response = await axios.post(`/admin/categories/`, {
             },
             );
             if (response.data.status === true) {
@@ -688,7 +688,7 @@ createApp({
     async getSubCategories() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/categories/sub`, {
+            const response = await axios.post(`/admin/categories/sub`, {
                 cat_id: this.cat_id
             },
             );

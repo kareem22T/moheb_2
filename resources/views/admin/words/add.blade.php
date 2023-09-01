@@ -280,7 +280,7 @@ createApp({
     async add(main_name, term_translations, title_translations, content_translations, thumbnail, sounds_translations, cat_id, tags) {
       $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/words/add`, {
+            const response = await axios.post(`/admin/words/add`, {
                 main_name: main_name,
                 term_translations: term_translations,
                 title_translations: title_translations,
@@ -306,7 +306,7 @@ createApp({
             $('.loader').fadeOut()
             setTimeout(() => {
                 $('#errors').fadeOut('slow')
-                window.location.href = '/Moheb/admin/words'
+                window.location.href = '/admin/words'
             }, 2000);
             } else {
             $('.loader').fadeOut()
@@ -343,7 +343,7 @@ createApp({
     async getLanguages() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/words/get-languages`, {
+            const response = await axios.post(`/admin/words/get-languages`, {
             },
             );
             if (response.data.status === true) {
@@ -384,7 +384,7 @@ createApp({
     async getCategories() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/categories/`, {
+            const response = await axios.post(`/admin/categories/`, {
             },
             );
             if (response.data.status === true) {
@@ -425,7 +425,7 @@ createApp({
     async getSubCategories() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/categories/sub`, {
+            const response = await axios.post(`/admin/categories/sub`, {
                 cat_id: this.cat_id
             },
             );
@@ -472,7 +472,7 @@ createApp({
     },
     async getTagSearch(search_words) {
         try {
-            const response = await axios.post(`/Moheb/admin/tags/search`, {
+            const response = await axios.post(`/admin/tags/search`, {
                 search_words: search_words,
             },
             );

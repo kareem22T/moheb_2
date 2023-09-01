@@ -263,7 +263,7 @@ createApp({
     async add(main_name, title_translations, content_translations, thumbnail, cat_id, tags) {
       $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/articles/add`, {
+            const response = await axios.post(`/admin/articles/add`, {
                 main_name: main_name,
                 title_translations: title_translations,
                 content_translations: content_translations,
@@ -287,7 +287,7 @@ createApp({
             $('.loader').fadeOut()
             setTimeout(() => {
                 $('#errors').fadeOut('slow')
-                window.location.href = '/Moheb/admin/articles'
+                window.location.href = '/admin/articles'
             }, 2000);
             } else {
             $('.loader').fadeOut()
@@ -323,7 +323,7 @@ createApp({
     },
     async getTagSearch(search_words) {
         try {
-            const response = await axios.post(`/Moheb/admin/tags/search`, {
+            const response = await axios.post(`/admin/tags/search`, {
                 search_words: search_words,
             },
             );
@@ -366,7 +366,7 @@ createApp({
     async getLanguages() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/words/get-languages`, {
+            const response = await axios.post(`/admin/words/get-languages`, {
             },
             );
             if (response.data.status === true) {
@@ -407,7 +407,7 @@ createApp({
     async getImages() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.get(`/Moheb/admin/articles/get_images`
+            const response = await axios.get(`/admin/articles/get_images`
             );
             if (response.data.status === true) {
                 $('.loader').fadeOut()
@@ -447,7 +447,7 @@ createApp({
     async uploadImage(image) {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/articles/upload`, {
+            const response = await axios.post(`/admin/articles/upload`, {
                 img: image,
             },
             {
@@ -505,7 +505,7 @@ createApp({
     async getCategories() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/categories/`, {
+            const response = await axios.post(`/admin/categories/`, {
             },
             );
             if (response.data.status === true) {
@@ -546,7 +546,7 @@ createApp({
     async getSubCategories() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/categories/sub`, {
+            const response = await axios.post(`/admin/categories/sub`, {
                 cat_id: this.cat_id
             },
             );
