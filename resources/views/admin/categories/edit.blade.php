@@ -68,7 +68,7 @@
         </div>
         @else
         @php
-            return redirect('/admin/categories/preview');
+            return redirect('/Moheb/admin/categories/preview');
         @endphp
         @endif
     </div>
@@ -140,7 +140,7 @@ createApp({
     async save(category_translations, main_name, description, thumbnail) {
       $('.loader').fadeIn().css('display', 'flex')
       try {
-        const response = await axios.post(`/admin/categories/edit`, {
+        const response = await axios.post(`/Moheb/admin/categories/edit`, {
           category_translations: category_translations,
           main_name: main_name,
           description: description,
@@ -163,7 +163,7 @@ createApp({
           $('.loader').fadeOut()
           setTimeout(() => {
             $('#errors').fadeOut('slow')
-            window.location.href = '/admin/categories'
+            window.location.href = '/Moheb/admin/categories'
           }, 2000);
         } else {
           $('.loader').fadeOut()
@@ -200,7 +200,7 @@ createApp({
     async getLanguages() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/admin/categories/get-languages`, {
+            const response = await axios.post(`/Moheb/admin/categories/get-languages`, {
             },
             );
             if (response.data.status === true) {
@@ -241,7 +241,7 @@ createApp({
     async getCategories() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/admin/categories/`, {
+            const response = await axios.post(`/Moheb/admin/categories/`, {
             },
             );
             if (response.data.status === true) {
@@ -282,7 +282,7 @@ createApp({
     async getCategory() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/admin/category`, {
+            const response = await axios.post(`/Moheb/admin/category`, {
                 category_id: this.category_id
             },
             );
@@ -327,7 +327,7 @@ createApp({
     async getNameTranslations() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/admin/category/names`, {
+            const response = await axios.post(`/Moheb/admin/category/names`, {
                 category_id: this.category_id
             },
             );
