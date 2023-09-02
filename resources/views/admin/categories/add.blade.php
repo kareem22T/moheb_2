@@ -301,7 +301,7 @@ createApp({
             $(this).val(null);
             $("#preview").attr(
                 "src",
-                "/dashboard/images/add_image.svg"
+                "/Moheb/dashboard/images/add_image.svg"
             );
             $(".photo_group i").removeClass("fa-edit").addClass("fa-plus");
         } else {

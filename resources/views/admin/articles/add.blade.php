@@ -202,27 +202,10 @@
         content: ""
     }
 </style>
+<script src="{{ asset('/public/libs/swiper.js') }}"></script>
 @endsection
 
 @section('scripts')
-<!-- Swiper JS -->
-<script src="{{ asset('/public/libs/swiper.js') }}"></script>
-
-<!-- Initialize Swiper -->
-<script>
-window.onload = function() {
-    var swiper = new Swiper(".mySwiper", {
-      pagination: {
-        el: ".swiper-pagination",
-        type: "fraction",
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-};
-</script>
 
 <script>
 const { createApp, ref } = Vue;
@@ -607,9 +590,67 @@ createApp({
     },
     photoChanges(event) {
         this.thumbnail = event.target.files[0];
+        var file = event.target.files[0];
+        var fileType = file.type;
+        var validImageTypes = ["image/gif", "image/jpeg", "image/jpg", "image/png"];
+        if ($.inArray(fileType, validImageTypes) < 0) {
+            document.getElementById("errors").innerHTML = "";
+            let error = document.createElement("div");
+            error.classList = "error";
+            error.innerHTML =
+                "Invalid file type. Please choose a GIF, JPEG, or PNG image.";
+            document.getElementById("errors").append(error);
+            $("#errors").fadeIn("slow");
+            setTimeout(() => {
+                $("#errors").fadeOut("slow");
+            }, 2000);
+
+            $(this).val(null);
+            $("#preview").attr(
+                "src",
+                "/Moheb/dashboard/images/add_image.svg"
+            );
+            $(".photo_group i").removeClass("fa-edit").addClass("fa-plus");
+        } else {
+            // display image preview
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("#preview").attr("src", e.target.result);
+                $(".photo_group  i")
+                    .removeClass("fa-plus")
+                    .addClass("fa-edit");
+                $(".photo_group label >i").fadeOut("fast");
+            };
+            reader.readAsDataURL(file);
+        }
     },
     imageChanges(event) {
         this.image = event.target.files[0];
+                // check if file is valid image
+        var file = event.target.files[0];
+        var fileType = file.type;
+        var validImageTypes = ["image/gif", "image/jpeg", "image/jpg", "image/png"];
+        if ($.inArray(fileType, validImageTypes) < 0) {
+            document.getElementById("errors").innerHTML = "";
+            let error = document.createElement("div");
+            error.classList = "error";
+            error.innerHTML =
+                "Invalid file type. Please choose a GIF, JPEG, or PNG image.";
+            document.getElementById("errors").append(error);
+            $("#errors").fadeIn("slow");
+            setTimeout(() => {
+                $("#errors").fadeOut("slow");
+            }, 2000);
+
+            $(this).val(null);
+        } else {
+            // display image preview
+            var reader = new FileReader();
+            reader.onload = function (e) {
+            };
+            reader.readAsDataURL(file);
+        }
+
     },
     async getContentTranslations () {
         console.log(this.languages_data);
@@ -649,73 +690,39 @@ createApp({
     this.getImages()
   },
   mounted() {
-    $("#thumbnail").change(function () {
-        // check if file is valid image
-        var file = this.files[0];
-        var fileType = file.type;
-        var validImageTypes = ["image/gif", "image/jpeg", "image/jpg", "image/png"];
-        if ($.inArray(fileType, validImageTypes) < 0) {
-            document.getElementById("errors").innerHTML = "";
-            let error = document.createElement("div");
-            error.classList = "error";
-            error.innerHTML =
-                "Invalid file type. Please choose a GIF, JPEG, or PNG image.";
-            document.getElementById("errors").append(error);
-            $("#errors").fadeIn("slow");
-            setTimeout(() => {
-                $("#errors").fadeOut("slow");
-            }, 2000);
-
-            $(this).val(null);
-            $("#preview").attr(
-                "src",
-                "/dashboard/images/add_image.svg"
-            );
-            $(".photo_group i").removeClass("fa-edit").addClass("fa-plus");
-        } else {
-            // display image preview
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $("#preview").attr("src", e.target.result);
-                $(".photo_group  i")
-                    .removeClass("fa-plus")
-                    .addClass("fa-edit");
-                $(".photo_group label >i").fadeOut("fast");
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-    $("#image").change(function () {
-        // check if file is valid image
-        var file = this.files[0];
-        var fileType = file.type;
-        var validImageTypes = ["image/gif", "image/jpeg", "image/jpg", "image/png"];
-        if ($.inArray(fileType, validImageTypes) < 0) {
-            document.getElementById("errors").innerHTML = "";
-            let error = document.createElement("div");
-            error.classList = "error";
-            error.innerHTML =
-                "Invalid file type. Please choose a GIF, JPEG, or PNG image.";
-            document.getElementById("errors").append(error);
-            $("#errors").fadeIn("slow");
-            setTimeout(() => {
-                $("#errors").fadeOut("slow");
-            }, 2000);
-
-            $(this).val(null);
-        } else {
-            // display image preview
-            var reader = new FileReader();
-            reader.onload = function (e) {
-            };
-            reader.readAsDataURL(file);
-        }
-    });
     $(document).on('click', '.imgs .img', function () {
         $(this).css('border', '1px solid #13DEB9')
         $(this).siblings().css('border', 'none')
     })
   },
 }).mount('#add_cat')
+</script>
+<script>
+window.onload = function() {
+    setTimeout(() => {
+        var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "fraction",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+            },
+        });
+    }, 3000);
+    setTimeout(() => {
+        var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "fraction",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+            },
+        });
+    }, 5000);
+}
 </script>
 @endsection

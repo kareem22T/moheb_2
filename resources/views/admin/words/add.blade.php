@@ -223,27 +223,11 @@
         content: ""
     }
 </style>
+<script src="{{ asset('/public/libs/swiper.js') }}"></script>
 @endsection
 
 @section('scripts')
 <!-- Swiper JS -->
-<script src="{{ asset('/public/libs/swiper.js') }}"></script>
-
-<!-- Initialize Swiper -->
-<script>
-window.onload = function() {
-    var swiper = new Swiper(".mySwiper", {
-      pagination: {
-        el: ".swiper-pagination",
-        type: "fraction",
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-};
-</script>
 
 <script>
 const { createApp, ref } = Vue;
@@ -528,24 +512,7 @@ createApp({
     },
     photoChanges(event) {
         this.thumbnail = event.target.files[0];
-    },
-    async getContentTranslations () {
-        console.log(this.languages_data);
-        await this.languages_data.forEach((language, index) => {
-            if (document.getElementById('article-content-' + language.symbol) && document.getElementById('article-content-' + language.symbol).innerHTML != '')
-                this.content_translations[language.symbol] = document.getElementById('article-content-' + language.symbol).innerHTML;
-        })
-    }
-
-  },
-  created() {
-    this.getLanguages()
-    this.getCategories()
-  },
-  mounted() {
-    $("#thumbnail").change(function () {
-        // check if file is valid image
-        var file = this.files[0];
+        var file = event.target.files[0];
         var fileType = file.type;
         var validImageTypes = ["image/gif", "image/jpeg", "image/jpg", "image/png"];
         if ($.inArray(fileType, validImageTypes) < 0) {
@@ -563,7 +530,7 @@ createApp({
             $(this).val(null);
             $("#preview").attr(
                 "src",
-                "/dashboard/images/add_image.svg"
+                "/Moheb/dashboard/images/add_image.svg"
             );
             $(".photo_group i").removeClass("fa-edit").addClass("fa-plus");
         } else {
@@ -578,8 +545,50 @@ createApp({
             };
             reader.readAsDataURL(file);
         }
-    });
+    },
+    async getContentTranslations () {
+        console.log(this.languages_data);
+        await this.languages_data.forEach((language, index) => {
+            if (document.getElementById('article-content-' + language.symbol) && document.getElementById('article-content-' + language.symbol).innerHTML != '')
+                this.content_translations[language.symbol] = document.getElementById('article-content-' + language.symbol).innerHTML;
+        })
+    }
+
+  },
+  created() {
+    this.getLanguages()
+    this.getCategories()
+  },
+  mounted() {
   },
 }).mount('#add_cat')
+</script>
+<script>
+window.onload = function() {
+    setTimeout(() => {
+        var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "fraction",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+            },
+        });
+    }, 3000);
+    setTimeout(() => {
+        var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "fraction",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+            },
+        });
+    }, 5000);
+}
 </script>
 @endsection
