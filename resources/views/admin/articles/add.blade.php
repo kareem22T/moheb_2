@@ -491,7 +491,7 @@ createApp({
     async getCategories() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/categories/`, {
+            const response = await axios.post(`/Moheb/admin/categories/main`, {
                 cat: 'cat'
             },
             );
