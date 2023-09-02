@@ -45,7 +45,7 @@
                 <textarea name="description" id="description" cols="30" rows="10" class="form-control w-75" placeholder="Description" v-model="description"></textarea>
                 <div class="w-25">
                     <label for="thumbnail" class="w-100 h-100 p-3 d-flex justify-content-center align-items-center form-control" style="max-height: 170px;">
-                        <img src="{{asset('/publicdashboard/images/add_image.svg')}}" id="preview" alt="img logo" style="width: 100%; max-width: 100%;object-fit: contain;height: 100%;">                                                
+                        <img src="{{asset('/public/dashboard/images/add_image.svg')}}" id="preview" alt="img logo" style="width: 100%; max-width: 100%;object-fit: contain;height: 100%;">                                                
                     </label>
                     <input type="file" name="thumbnail" id="thumbnail" class="d-none" @change="photoChanges">
                 </div>
