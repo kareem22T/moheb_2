@@ -283,6 +283,39 @@ createApp({
     },
     photoChanges(event) {
         this.thumbnail = event.target.files[0];
+        var file = event.target.files[0];
+        var fileType = file.type;
+        var validImageTypes = ["image/gif", "image/jpeg", "image/jpg", "image/png"];
+        if ($.inArray(fileType, validImageTypes) < 0) {
+            document.getElementById("errors").innerHTML = "";
+            let error = document.createElement("div");
+            error.classList = "error";
+            error.innerHTML =
+                "Invalid file type. Please choose a GIF, JPEG, or PNG image.";
+            document.getElementById("errors").append(error);
+            $("#errors").fadeIn("slow");
+            setTimeout(() => {
+                $("#errors").fadeOut("slow");
+            }, 2000);
+
+            $(this).val(null);
+            $("#preview").attr(
+                "src",
+                "/dashboard/images/add_image.svg"
+            );
+            $(".photo_group i").removeClass("fa-edit").addClass("fa-plus");
+        } else {
+            // display image preview
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("#preview").attr("src", e.target.result);
+                $(".photo_group  i")
+                    .removeClass("fa-plus")
+                    .addClass("fa-edit");
+                $(".photo_group label >i").fadeOut("fast");
+            };
+            reader.readAsDataURL(file);
+        }
     },
   },
   created() {
@@ -307,43 +340,19 @@ window.onload = function() {
                     prevEl: ".swiper-button-prev",
             },
         });
-        $(document).change("#thumbnail", function () {
-            // check if file is valid image
-            var file = this.files[0];
-            var fileType = file.type;
-            var validImageTypes = ["image/gif", "image/jpeg", "image/jpg", "image/png"];
-            if ($.inArray(fileType, validImageTypes) < 0) {
-                document.getElementById("errors").innerHTML = "";
-                let error = document.createElement("div");
-                error.classList = "error";
-                error.innerHTML =
-                    "Invalid file type. Please choose a GIF, JPEG, or PNG image.";
-                document.getElementById("errors").append(error);
-                $("#errors").fadeIn("slow");
-                setTimeout(() => {
-                    $("#errors").fadeOut("slow");
-                }, 2000);
-
-                $(this).val(null);
-                $("#preview").attr(
-                    "src",
-                    "/dashboard/images/add_image.svg"
-                );
-                $(".photo_group i").removeClass("fa-edit").addClass("fa-plus");
-            } else {
-                // display image preview
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $("#preview").attr("src", e.target.result);
-                    $(".photo_group  i")
-                        .removeClass("fa-plus")
-                        .addClass("fa-edit");
-                    $(".photo_group label >i").fadeOut("fast");
-                };
-                reader.readAsDataURL(file);
-            }
-        });
     }, 3000);
+    setTimeout(() => {
+        var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "fraction",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+            },
+        });
+    }, 5000);
 }
 </script>
 
