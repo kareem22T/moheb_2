@@ -41,7 +41,7 @@ Route::middleware(['auth:admin'])->group(function () {
 
     //categories
     Route::get('/categories', [CategoriesController::class, 'preview']);
-    Route::post('/categories', [CategoriesController::class, 'getMainCategories']);
+    Route::post('/categories/main', [CategoriesController::class, 'getMainCategories']);
     Route::post('/categories/sub', [CategoriesController::class, 'getSubCategories']);
     Route::post('/category', [CategoriesController::class, 'getCategoryById']);
     Route::get('/category/{cat_id}', [CategoriesController::class, 'getCategoryIndex']);
