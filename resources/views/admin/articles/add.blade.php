@@ -15,7 +15,7 @@
     }
 </style>
 <div class="card" id="add_cat">
-    <div class="card-body"   v-if="languages_data && languages_data.length > 0">
+    <div class="card-body"   v-if="languages_data && languages_data.length > 0 && categories_data && categories_data.length">
         <div>
             <div class="d-flex justify-content-between gap-4">
                 <div class="w-50 mb-3">
