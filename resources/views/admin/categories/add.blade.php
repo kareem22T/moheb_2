@@ -107,8 +107,8 @@
 
 <!-- Initialize Swiper -->
 <script>
-window.onload = function() {
-    var swiper = new Swiper(".mySwiper", {
+window.onload = async function() {
+    var swiper = await new Swiper(".mySwiper", {
       pagination: {
         el: ".swiper-pagination",
         type: "fraction",
