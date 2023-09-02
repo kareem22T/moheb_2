@@ -492,6 +492,7 @@ createApp({
         $('.loader').fadeIn().css('display', 'flex')
         try {
             const response = await axios.post(`/Moheb/admin/categories/`, {
+                cat: 'cat'
             },
             );
             if (response.data.status === true) {
