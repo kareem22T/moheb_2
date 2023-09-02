@@ -210,7 +210,6 @@
 
 <!-- Initialize Swiper -->
 <script>
-window.onload = function() {
     var swiper = new Swiper(".mySwiper", {
       pagination: {
         el: ".swiper-pagination",
@@ -221,7 +220,6 @@ window.onload = function() {
         prevEl: ".swiper-button-prev",
       },
     });
-};
 </script>
 
 <script>
