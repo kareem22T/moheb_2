@@ -122,7 +122,7 @@
             <div class="mb-3 w-100 d-flex gap-3">
                 <div class="w-25">
                     <label for="thumbnail" class="w-100 h-100 p-3 d-flex justify-content-center align-items-center form-control" style="max-height: 170px;">
-                        <img :src="thumbnail_path ? '/dashboard/images/uploads/terms_thumbnail/' + thumbnail_path : '/dashboard/images/add_image.svg'" id="preview" alt="img logo" style="width: 100%; max-width: 100%;object-fit: contain;height: 100%;">                                                
+                        <img :src="thumbnail_path ? '/Moheb/dashboard/images/uploads/terms_thumbnail/' + thumbnail_path : '/Moheb/dashboard/images/add_image.svg'" id="preview" alt="img logo" style="width: 100%; max-width: 100%;object-fit: contain;height: 100%;">                                                
                     </label>
                     <input type="file" name="thumbnail" id="thumbnail" class="d-none" @change="photoChanges">
                 </div>
@@ -789,7 +789,7 @@ createApp({
             $(this).val(null);
             $("#preview").attr(
                 "src",
-                this.thumbnail_path ? '/dashboard/images/uploads/terms_thumbnail/' + this.thumbnail_path : "/dashboard/images/add_image.svg"
+                this.thumbnail_path ? '/Moheb/dashboard/images/uploads/terms_thumbnail/' + this.thumbnail_path : "/dashboard/images/add_image.svg"
             );
             $(".photo_group i").removeClass("fa-edit").addClass("fa-plus");
         } else {

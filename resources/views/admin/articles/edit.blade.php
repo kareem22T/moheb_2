@@ -99,8 +99,8 @@
             <div class="hide-content" v-if="showImages"></div>
             <div class="pop-up show-images-pop-up card" v-if="showImages" style="min-width: 90vw;height: 90vh;padding: 20px;display: flex;flex-direction: column;justify-content: space-between;gap: 1rem;">
                 <div class="imgs p-2 gap-3" v-if="articles_images && articles_images.length" style="display: flex;grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));flex-wrap: wrap;height: 100%;overflow: auto;">
-                    <div class="img" @click="this.choosed_img = '/dashboard/images/uploads/articles_images/' + img.path" v-for="(img, index) in articles_images" :key="img.id" style="width: 260px;height: 230px;overflow: hidden;padding: 10px;border-radius: 1rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                        <img :src="'/dashboard/images/uploads/articles_images/' + img.path" id="preview" alt="img logo" style="width: 100%;height: 100%;object-fit: contain;">
+                    <div class="img" @click="this.choosed_img = '/Moheb/dashboard/images/uploads/articles_images/' + img.path" v-for="(img, index) in articles_images" :key="img.id" style="width: 260px;height: 230px;overflow: hidden;padding: 10px;border-radius: 1rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+                        <img :src="'/Moheb/dashboard/images/uploads/articles_images/' + img.path" id="preview" alt="img logo" style="width: 100%;height: 100%;object-fit: contain;">
                     </div>
                 </div>
                 <h1 v-if="articles_images && !articles_images.length">There is not any image yet! (upload now)</h1>
@@ -127,7 +127,7 @@
             <div class="mb-3 w-100 d-flex gap-3">
                 <div class="w-25">
                     <label for="thumbnail" class="w-100 h-100 p-3 d-flex justify-content-center align-items-center form-control" style="max-height: 170px;">
-                        <img :src="thumbnail_path ? '/dashboard/images/uploads/Articles_thumbnail/' + thumbnail_path : '/dashboard/images/add_image.svg'" id="preview" alt="img logo" style="width: 100%; max-width: 100%;object-fit: contain;height: 100%;">                                                
+                        <img :src="thumbnail_path ? '/Moheb/dashboard/images/uploads/Articles_thumbnail/' + thumbnail_path : '/Moheb/dashboard/images/add_image.svg'" id="preview" alt="img logo" style="width: 100%; max-width: 100%;object-fit: contain;height: 100%;">                                                
                     </label>
                     <input type="file" name="thumbnail" id="thumbnail" class="d-none" @change="photoChanges">
                 </div>
@@ -761,7 +761,7 @@ createApp({
         })
     },
     chooseImage(imagePath) {
-        this.choosed_img = '/dashboard/images/uploads/articles_images/' + imagePath;
+        this.choosed_img = '/Moheb/dashboard/images/uploads/articles_images/' + imagePath;
     },
     insertImgToArticle () {
         if (this.choosed_img) {
@@ -816,7 +816,7 @@ createApp({
             $(this).val(null);
             $("#preview").attr(
                 "src",
-                this.thumbnail_path ? '/dashboard/images/uploads/Articles_thumbnail/' + this.thumbnail_path : "/dashboard/images/add_image.svg"
+                this.thumbnail_path ? '/Moheb/dashboard/images/uploads/Articles_thumbnail/' + this.thumbnail_path : "/dashboard/images/add_image.svg"
             );
             $(".photo_group i").removeClass("fa-edit").addClass("fa-plus");
         } else {
