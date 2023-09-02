@@ -121,6 +121,7 @@ class WordsController extends Controller
             'category_id' => $request->cat_id
         ]);
 
+        if ($request->tags)
         foreach ($request->tags as $tagName) {
             $tag = Tag::firstOrCreate(['name' => $tagName]); // Check if tag exists or create a new one
             $createTerm->tags()->attach($tag->id); // Attach the tag to the term
