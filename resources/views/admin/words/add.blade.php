@@ -201,6 +201,9 @@
     <h4 class="card-body" v-if="!languages_data || languages_data.length == 0">
         Please add at least one language first
     </h4>
+    <h4 class="card-body" v-if="!categories_data || categories_data.length == 0">
+        Please add at least one category first
+    </h4>
 </div>
 @endsection
 
