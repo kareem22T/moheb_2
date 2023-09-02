@@ -105,22 +105,6 @@
 <!-- Swiper JS -->
 <script src="{{ asset('/public/libs/swiper.js') }}"></script>
 
-<!-- Initialize Swiper -->
-<script>
-window.onload = function() {
-    var swiper = new Swiper(".mySwiper", {
-      pagination: {
-        el: ".swiper-pagination",
-        type: "fraction",
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-};
-</script>
-
 <script>
 const { createApp, ref } = Vue;
 
@@ -302,6 +286,19 @@ createApp({
   },
   created() {
     this.getLanguages()
+    window.onload = function() {
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+};
+
   },
   mounted() {
         $("#thumbnail").change(function () {
