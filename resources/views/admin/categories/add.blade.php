@@ -99,28 +99,13 @@
         content: ""
     }
 </style>
+<script src="{{ asset('/public/libs/swiper.js') }}"></script>
 @endsection
 
 @section('scripts')
 <!-- Swiper JS -->
-<script src="{{ asset('/public/libs/swiper.js') }}"></script>
 
 <!-- Initialize Swiper -->
-<script>
-window.onload = async function() {
-    var swiper = await new Swiper(".mySwiper", {
-      pagination: {
-        el: ".swiper-pagination",
-        type: "fraction",
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-};
-</script>
-
 <script>
 const { createApp, ref } = Vue;
 
@@ -301,7 +286,9 @@ createApp({
     },
   },
   created() {
-    this.getLanguages()
+    setTimeout(() => {
+        this.getLanguages()
+    }, 2000);
   },
   mounted() {
         $("#thumbnail").change(function () {
@@ -343,4 +330,21 @@ createApp({
   },
 }).mount('#add_cat')
 </script>
+<script>
+window.onload = function() {
+    setTimeout(() => {
+        var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "fraction",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+            },
+        });
+    }, 3000);
+}
+</script>
+
 @endsection
