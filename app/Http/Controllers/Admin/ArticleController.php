@@ -67,43 +67,6 @@ class ArticleController extends Controller
         return view('admin.articles.add');
     }
 
-    public function uploadeImg(Request $request) {
-        $validator = Validator::make($request->all(), [
-            'img' => ['required'],
-        ], [
-            'img.required' => 'Please uploade an valid image',
-        ]);
-
-        if ($validator->fails()) {
-            return $this->jsondata(false, true, 'upload failed', [$validator->errors()->first()], []);
-        }
-
-        $image = $this->saveFile($request->img, 'dashboard/images/uploads/articles_images', time());
-        if ($image)
-            $upload_image = Articles_image::create([
-                'path' => $image
-            ]);
-
-        if ($upload_image)
-            return $this->jsondata(true, true, 'Image have uploaded successfully', [], []);
-
-
-        return $this->jsondata('false', true, 'uploade field', ['please uploade valid image'], []);
-
-    }
-
-    public function getImages() {
-        
-        $get_images = Articles_image::orderby('id', 'desc')->paginate(15);
-
-        if ($get_images)
-            return $this->jsondata(true, true, '', [], $get_images);
-
-
-        return $this->jsondata('false', true, 'there is no images yet field', ['please uploade images'], []);
-
-    }
-
     public function add(Request $request) {
         $languages = Language::all();
         $symbols = $languages->pluck('symbol')->all();
@@ -139,13 +102,9 @@ class ArticleController extends Controller
             return $this->jsondata(false, true, 'Add failed', ['Please choose sub category for your Article'], []);
         }
 
-
-        $thumbnail = null;
-        if ($request->thumbnail)
-            $thumbnail = $this->saveFile($request->thumbnail, 'dashboard/images/uploads/articles_thumbnail', Str::ucfirst($request->main_name). '_' . $request->cat_id);
         $createArticle = Article::create([
             'name' => Str::ucfirst($request->main_name),
-            'thumbnail_path' => $thumbnail ? $thumbnail : null,
+            'thumbnail_path' => $request->thumbnail ? $request->thumbnail : null,
             'category_id' => $request->cat_id
         ]);
 
@@ -267,14 +226,9 @@ class ArticleController extends Controller
             return $this->jsondata(false, true, 'Add failed', ['Please choose sub category for your Article'], []);
         }
 
-        $thumbnail = null;
-        if ($request->thumbnail) :
-            $thumbnail = $this->saveFile($request->thumbnail, 'dashboard/images/uploads/Articles_thumbnail', Str::ucfirst($request->main_name). '_' . $request->cat_id);
-            File::delete(public_path('/dashboard/images/uploads/articles_thumbnail/' . $Article->thumbnail_path));
-        endif;
-
         $Article->name = Str::ucfirst($request->main_name);
-        $Article->thumbnail_path = $thumbnail ? $thumbnail : null;
+        if ($request->thumbnail)
+            $Article->thumbnail_path = $request->thumbnail;
         $Article->category_id = $request->cat_id;
         $Article->save();
 

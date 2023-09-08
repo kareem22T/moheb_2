@@ -84,13 +84,12 @@ class CategoriesController extends Controller
             return $this->jsondata(false, true, 'Add failed', ['Please enter category name in (' . Language::where('symbol', reset($missingLanguages))->first()->name . ')'], []);
         }
 
-        $thumbnail = $this->saveFile($request->thumbnail, 'dashboard/images/uploads/categories_thumbnail', Str::ucfirst($request->main_name). '_' . time());
         $createCategory = Category::create([
             'main_name' => Str::ucfirst($request->main_name),
             'description' => $request->description ? $request->description : null,
             'cat_type' => $request->cat_type,
             'main_cat_id' => $request->main_cat_id ? $request->main_cat_id : null,
-            'thumbnail_path' => $thumbnail
+            'thumbnail_path' => $request->thumbnail
         ]);
 
 
@@ -160,13 +159,9 @@ class CategoriesController extends Controller
         if (!empty($missingLanguages)) {
             return $this->jsondata(false, true, 'Add failed', ['Please enter category name in (' . Language::where('symbol', reset($missingLanguages))->first()->name . ')'], []);
         }
-        if ($request->thumbnail) :
-            $thumbnail = $this->saveFile($request->thumbnail, 'dashboard/images/uploads/categories_thumbnail', Str::ucfirst($request->main_name). '_' . time());
-            File::delete(public_path('/dashboard/images/uploads/categories_thumbnail/' . $category->thumbnail_path));
-        endif;
         $category->main_name = Str::ucfirst($request->main_name);
-        if (isset($thumbnail))
-            $category->thumbnail_path = $thumbnail;
+        if ($request->thumbnail)
+            $category->thumbnail_path = $request->thumbnail;
         $category->description = $request->description ? $request->description : null;
         $category->save();
 

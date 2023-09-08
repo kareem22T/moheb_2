@@ -17,7 +17,7 @@
         <a href="/Moheb/admin/categories/edit/{{ $category->id }}" class="btn btn-success">Edit Category</a>
     </div>
     <div class="img card p-2" style="max-height: 150px; max-width: 140px">
-        <img src="{{$category->thumbnail_path ? '/Moheb/dashboard/images/uploads/categories_thumbnail/' . $category->thumbnail_path : '/Moheb/dashboard/images/add_image.svg' }}" id="preview" alt="img logo" style="width: 100%; max-width: 100%;object-fit: contain;height: 100%;">                                                
+        <img src="{{$category->thumbnail_path ?  $category->thumbnail_path : '/Moheb/dashboard/images/add_image.svg' }}" id="preview" alt="img logo" style="width: 100%; max-width: 100%;object-fit: contain;height: 100%;">                                                
     </div>
 </div>
 @endif

@@ -52,33 +52,9 @@ return [
             'throw' => false,
         ],
 
-        'terms_thumbnail' => [
+        'uploads' => [
             'driver' => 'local',
-            'root' => base_path() . 'public/dashboard/images/uploads/terms_thumbnail',
-            'url' => env('APP_URL'). '/public',
-            'visibility' => 'public',
-            'throw' => false,
-        ],
-
-        'articles_images' => [
-            'driver' => 'local',
-            'root' => base_path() . 'public/dashboard/images/uploads/articles_images',
-            'url' => env('APP_URL'). '/public',
-            'visibility' => 'public',
-            'throw' => false,
-        ],
-
-        'articles_thumbnail' => [
-            'driver' => 'local',
-            'root' => base_path() . 'public/dashboard/images/uploads/articles_thumbnail',
-            'url' => env('APP_URL'). '/public',
-            'visibility' => 'public',
-            'throw' => false,
-        ],
-
-        'categories_thumbnail' => [
-            'driver' => 'local',
-            'root' => base_path() . 'public/dashboard/images/uploads/categories_thumbnail',
+            'root' => base_path() . 'public/dashboard/images/uploads/',
             'url' => env('APP_URL'). '/public',
             'visibility' => 'public',
             'throw' => false,

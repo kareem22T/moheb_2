@@ -101,7 +101,7 @@
             <div class="col-md-8 col-lg-6 col-xxl-3">
                 <div class="card mb-0">
                 <div class="card-body" id="login">
-                    <a href="./index.html" class="text-nowrap logo-img text-center d-block w-100">
+                    <a href="/Moheb/admin" class="text-nowrap logo-img text-center d-block w-100">
                     <h1>MOHEB</h1>
                     </a>
                     <p class="text-center">Login | Dashboard</p>

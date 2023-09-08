@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\WordsController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\TagsController;
+use App\Http\Controllers\Admin\ImagesController;
 
 Route::middleware(['guest_admin'])->group(function () {
     Route::get('/login', [RegisterController::class, 'getLoginIndex']);
@@ -85,10 +86,13 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/articles/delete', [ArticleController::class, 'delete']);
     Route::get('/articles/add', [ArticleController::class, 'addIndex']);
     Route::post('/articles/add', [ArticleController::class, 'add']);
-    Route::post('/articles/upload', [ArticleController::class, 'uploadeImg']);
-    Route::get('/articles/get_images', [ArticleController::class, 'getImages']);
     Route::get('/articles/edit/', [ArticleController::class, 'preview']);
     Route::post('/articles/edit', [ArticleController::class, 'editArticle']);
     Route::get('/articles/edit/{article_id}', [ArticleController::class, 'editIndex']);
+
+    // images
+    Route::post('/images/upload', [ImagesController::class, 'uploadeImg']);
+    Route::get('/images/get_images', [ImagesController::class, 'getImages']);
+    Route::post('/images/search', [ImagesController::class, 'search']);
 });
 

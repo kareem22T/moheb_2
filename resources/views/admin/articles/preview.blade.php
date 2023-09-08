@@ -98,6 +98,9 @@ createApp({
             delete_pop_up: false,
             articles_data: null,
             search: null,
+            page: 1,
+            total: null,
+            last_page: null
         }
     },
     methods: {

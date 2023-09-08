@@ -112,12 +112,9 @@ class WordsController extends Controller
             return $this->jsondata(false, true, 'Add failed', ['Please choose sub category for your term'], []);
         }
 
-        $thumbnail = null;
-        if ($request->thumbnail)
-            $thumbnail = $this->saveFile($request->thumbnail, 'dashboard/images/uploads/terms_thumbnail', Str::ucfirst($request->main_name). '_' . $request->cat_id);
         $createTerm = Term::create([
             'name' => Str::ucfirst($request->main_name),
-            'thumbnail_path' => $thumbnail ? $thumbnail : null,
+            'thumbnail_path' => $request->thumbnail ? $request->thumbnail : null,
             'category_id' => $request->cat_id
         ]);
 
@@ -308,13 +305,9 @@ class WordsController extends Controller
             return $this->jsondata(false, true, 'Add failed', ['Please choose sub category for your term'], []);
         }
 
-        $thumbnail = null;
-        if ($request->thumbnail) :
-            $thumbnail = $this->saveFile($request->thumbnail, 'dashboard/images/uploads/terms_thumbnail', Str::ucfirst($request->main_name). '_' . $request->cat_id);
-            File::delete(public_path('/dashboard/images/uploads/terms_thumbnail/' . $term->thumbnail_path));
-        endif;
         $term->name = Str::ucfirst($request->main_name);
-        $term->thumbnail_path = $thumbnail ? $thumbnail : null;
+            if ($request->thumbnail)
+            $term->thumbnail_path = $request->thumbnail;
         $term->category_id = $request->cat_id;
         $term->save();
 

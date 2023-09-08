@@ -24,86 +24,63 @@
                 </div>
             </div>
             <!-- Swiper -->
-            <div class="swiper mySwiper w-100 mb-4 pb-5">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" v-for="(language, index) in languages_data" :key="index">
-                        <div>
-                            <label for="term_title" class="form-label">Title in @{{language.name}} *</label>
-                            <input type="text" class="form-control" id="term_title" v-model="title_translations[language.symbol]">
-                        </div>
+            <div class="w-100 mb-4 pb-5 gap-2" style="display: grid; grid-template-columns: 1fr 1fr;">
+                <div class="w-100" v-for="(language, index) in languages_data" :key="index">
+                    <div>
+                        <label for="term_title" class="form-label">Title in @{{language.name}} *</label>
+                        <input type="text" class="form-control" id="term_title" v-model="title_translations[language.symbol]">
                     </div>
                 </div>
-                <div class="swiper-button-next btn btn-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M9 6l6 6l-6 6"></path>
-                    </svg>
-                </div>
-                <div class="swiper-button-prev btn btn-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M15 6l-6 6l6 6"></path>
-                    </svg>
-                </div>
-                <div class="swiper-pagination"></div>
             </div>
 
             <!-- Swiper -->
-            <div class="swiper mySwiper w-100 mb-4 pb-3">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide p-3" v-for="(language, index) in languages_data" :key="index">
-                        <div>
-                            <label for="lang_name" class="form-label">Content in @{{language.name}} *</label>
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="toolbar d-flex gap-2 justify-content-center">
-                                        <button @click="execCommand('bold')" class="btn btn-success"><b>B</b></button>
-                                        <button @click="execCommand('italic')" class="btn btn-success"><i>I</i></button>
-                                        <button @click="execCommand('underline')" class="btn btn-success"><u>U</u></button>
-                                        <button @click="execCommand('insertOrderedList')" class="btn btn-success"><i class="ti ti-list-numbers"></i></button>
-                                        <button @click="execCommand('insertUnorderedList')" class="btn btn-success"><i class="ti ti-list"></i></button>
-                                        <button @click="execCommand('justifyLeft')" class="btn btn-success"><i class="ti ti-align-left"></i></button>
-                                        <button @click="execCommand('justifyCenter')" class="btn btn-success"><i class="ti ti-align-center"></i></button>
-                                        <button @click="execCommand('justifyRight')" class="btn btn-success"><i class="ti ti-align-right"></i></button>
-                                        <button @click="insertHTML('<h2>Heading</h2>', 'article-content-' + language.symbol)" class="btn btn-success"><i class="ti ti-h-2"></i></button>
-                                        <button @click="insertHTML('<h3>Heading</h3>', 'article-content-' + language.symbol)" class="btn btn-success"><i class="ti ti-h-3"></i></button>
-                                        <button @click="insertHTML('<h4>Heading</h4>', 'article-content-' + language.symbol)" class="btn btn-success"><i class="ti ti-h-4"></i></button>
-                                        <button @click="insertHTML('<h5>Heading</h5>', 'article-content-' + language.symbol)" class="btn btn-success"><i class="ti ti-h-5"></i></button>
-                                        <button @click="insertHTML('<h6>Heading</h6>', 'article-content-' + language.symbol)" class="btn btn-success"><i class="ti ti-h-6"></i></button>
-                                        <button @click="insertHTML('<p>Paragraph</p>', 'article-content-' + language.symbol)" class="btn btn-success">P</button>
-                                        <button class="btn btn-success" @click="this.showImages = true; this.current_article_id = 'article-content-' + language.symbol"><i class="ti ti-photo-plus"></i></button>
-                                    </div>
+            <div class="w-100 mb-4 pb-3">
+                <div class="w-100 p-3" v-for="(language, index) in languages_data" :key="index">
+                    <div>
+                        <label for="lang_name" class="form-label">Content in @{{language.name}} *</label>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="toolbar d-flex gap-2 justify-content-center">
+                                    <button @click="execCommand('bold')" class="btn btn-success"><b>B</b></button>
+                                    <button @click="execCommand('italic')" class="btn btn-success"><i>I</i></button>
+                                    <button @click="execCommand('underline')" class="btn btn-success"><u>U</u></button>
+                                    <button @click="execCommand('insertOrderedList')" class="btn btn-success"><i class="ti ti-list-numbers"></i></button>
+                                    <button @click="execCommand('insertUnorderedList')" class="btn btn-success"><i class="ti ti-list"></i></button>
+                                    <button @click="execCommand('justifyLeft')" class="btn btn-success"><i class="ti ti-align-left"></i></button>
+                                    <button @click="execCommand('justifyCenter')" class="btn btn-success"><i class="ti ti-align-center"></i></button>
+                                    <button @click="execCommand('justifyRight')" class="btn btn-success"><i class="ti ti-align-right"></i></button>
+                                    <button @click="insertHTML('<h2>Heading</h2>', 'article-content-' + language.symbol)" class="btn btn-success"><i class="ti ti-h-2"></i></button>
+                                    <button @click="insertHTML('<h3>Heading</h3>', 'article-content-' + language.symbol)" class="btn btn-success"><i class="ti ti-h-3"></i></button>
+                                    <button @click="insertHTML('<h4>Heading</h4>', 'article-content-' + language.symbol)" class="btn btn-success"><i class="ti ti-h-4"></i></button>
+                                    <button @click="insertHTML('<h5>Heading</h5>', 'article-content-' + language.symbol)" class="btn btn-success"><i class="ti ti-h-5"></i></button>
+                                    <button @click="insertHTML('<h6>Heading</h6>', 'article-content-' + language.symbol)" class="btn btn-success"><i class="ti ti-h-6"></i></button>
+                                    <button @click="insertHTML('<p>Paragraph</p>', 'article-content-' + language.symbol)" class="btn btn-success">P</button>
+                                    <button class="btn btn-success" @click="this.showImages = true; this.current_article_id = 'article-content-' + language.symbol"><i class="ti ti-photo-plus"></i></button>
                                 </div>
-                                <div class="card-body">
-                                    <div contenteditable="true" :id="'article-content-' + language.symbol" class="form-control" style="min-height: 300px" @changes="contentChanges(language.symbol)"></div>
-                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div contenteditable="true" :id="'article-content-' + language.symbol" class="form-control" style="min-height: 300px" @changes="contentChanges(language.symbol)"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-button-next btn btn-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M9 6l6 6l-6 6"></path>
-                    </svg>
-                </div>
-                <div class="swiper-button-prev btn btn-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M15 6l-6 6l6 6"></path>
-                    </svg>
-                </div>
-                <div class="swiper-pagination"></div>
             </div>
 
             <div class="hide-content" v-if="showImages"></div>
             <div class="pop-up show-images-pop-up card" v-if="showImages" style="min-width: 90vw;height: 90vh;padding: 20px;display: flex;flex-direction: column;justify-content: space-between;gap: 1rem;">
-                <div class="imgs p-2 gap-3" v-if="articles_images && articles_images.length" style="display: flex;grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));flex-wrap: wrap;height: 100%;overflow: auto;">
-                    <div class="img" @click="this.choosed_img = '/Moheb/dashboard/images/uploads/articles_images/' + img.path" v-for="(img, index) in articles_images" :key="img.id" style="width: 260px;height: 230px;overflow: hidden;padding: 10px;border-radius: 1rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-                        <img :src="'/Moheb/dashboard/images/uploads/articles_images/' + img.path" id="preview" alt="img logo" style="width: 100%;height: 100%;object-fit: contain;">
+                <input type="text" name="search" id="search" class="form-control w-25 mb-2" placeholder="Search" v-model="search" @input="getSearchImages(this.search)">
+                <div class="imgs p-2 gap-3" v-if="images && images.length" style="display: flex;grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));flex-wrap: wrap;height: 100%;overflow: auto;">
+                    <div class="img" @click="this.choosed_img = '/Moheb/dashboard/images/uploads/' + img.path" v-for="(img, index) in images" :key="img.id" style="width: 260px;height: 230px;overflow: hidden;padding: 10px;border-radius: 1rem;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+                        <img :src="'/Moheb/dashboard/images/uploads/' + img.path" id="preview" alt="img logo" style="width: 100%;height: 100%;object-fit: contain;">
                     </div>
                 </div>
-                <h1 v-if="articles_images && !articles_images.length">There is not any image yet! (upload now)</h1>
+                <div class="pagination w-100 d-flex gap-2 justify-content-center mt-3" v-if="last_page > 1">
+                    <div v-for="page_num in last_page" :key="page_num" >
+                        <label :for="`page_num_${page_num}`" class="btn btn-primary" :class="page_num == page ? 'active' : ''">@{{ page_num }}</label>
+                        <input type="radio" class="d-none" name="page_num" :id="`page_num_${page_num}`" v-model="page" :value="page_num" @change="!search ? getImages() : getSearchImages(this.search)">
+                    </div>
+                </div>
+                <h1 v-if="images && !images.length && !search">There is not any image yet! (upload now)</h1>
                 <div class="foot" style="display: flex;width: 100%;justify-content: space-between;gap: 1rem;">
                     <button class="btn btn-primary" @click="this.showUploadPopUp = true">Upload Image</button>
                     <div class="hide-content" v-if="showUploadPopUp"></div>
@@ -118,18 +95,17 @@
                         </div>
                     </div>
                     <div class="d-flex gap-2">
-                        <button class="btn btn-light"  @click="this.showImages = false">Cancel</button>
-                        <button class="btn btn-success" @click="insertImgToArticle">Choose</button>
+                        <button class="btn btn-light"  @click="this.showImages = false; this.search = null; getSearch()">Cancel</button>
+                        <button class="btn btn-success"  @click="insertImgToArticle()">Choose</button>
                     </div>
                 </div>
             </div>
 
             <div class="mb-3 w-100 d-flex gap-3">
                 <div class="w-25">
-                    <label for="thumbnail" class="w-100 h-100 p-3 d-flex justify-content-center align-items-center form-control" style="max-height: 170px;">
-                        <img src="{{asset('/public/dashboard/images/add_image.svg')}}" id="preview" alt="img logo" style="width: 100%; max-width: 100%;object-fit: contain;height: 100%;">                                                
-                    </label>
-                    <input type="file" name="thumbnail" id="thumbnail" class="d-none" @change="photoChanges">
+                    <div @click="this.showImages = true; this.current_article_id = null" class="w-100 h-100 p-3 d-flex justify-content-center align-items-center form-control" style="max-height: 170px;">
+                        <img :src="preview_img ? preview_img : '/Moheb/public/dashboard/images/add_image.svg'" id="preview" alt="img logo" style="width: 100%; max-width: 100%;object-fit: contain;height: 100%;">                                                
+                    </div>
                 </div>
                 <div class="w-75">
                     <div class="w-100 mb-3 d-flex gap-3">
@@ -170,7 +146,7 @@
 
                     <!-- Swiper -->
                     <div class="w-100 mb-3 pb-5">
-                        <button type="submit" class="btn btn-primary w-50 form-control" style="height: fit-content" @click="getContentTranslations().then(() => { add(main_name, title_translations, content_translations, thumbnail, cat_id, tags)})"><i class="ti ti-plus"></i> Add</button>
+                        <button type="submit" class="btn btn-primary w-50 form-control" style="height: fit-content" @click="getContentTranslations().then(() => { add(main_name, title_translations, content_translations, preview_img, cat_id, tags)})"><i class="ti ti-plus"></i> Add</button>
                     </div>
                 </div>
             </div>
@@ -225,15 +201,20 @@ createApp({
       title_translations: {},
       content_translations: {},
       show_sub_categories: false,
-      articles_images: null,
+      tagInput: '',
+      tags: [],
+      images: null,
       showImages: false,
       showUploadPopUp: false,
       image: null,
       choosed_img: null,
       current_article_id: null,
-      tagInput: '',
-      tags: [],
-      search_tags: null
+      search_tags: null,
+      preview_img: null,
+      search: null,
+      page: 1,
+      total: 0,
+      last_page: 0,
     }
   },
   methods: {
@@ -245,6 +226,10 @@ createApp({
     },
     removeTag(index) {
       this.tags.splice(index, 1);
+    },
+    previewThumbnail () {
+        this.preview_img = this.choosed_img
+        this.showImages = false
     },
     async add(main_name, title_translations, content_translations, thumbnail, cat_id, tags) {
       $('.loader').fadeIn().css('display', 'flex')
@@ -393,13 +378,56 @@ createApp({
     async getImages() {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.get(`/Moheb/admin/articles/get_images`
+            const response = await axios.get(`/Moheb/admin/images/get_images?page=${this.page}`
             );
             if (response.data.status === true) {
                 $('.loader').fadeOut()
-                this.articles_images = response.data.data.data
+                this.images = response.data.data.data
+                this.total = response.data.data.total
+                this.last_page = response.data.data.last_page
             } else {
                 $('.loader').fadeOut()
+                document.getElementById('errors').innerHTML = ''
+                $.each(response.data.errors, function (key, value) {
+                    let error = document.createElement('div')
+                    error.classList = 'error'
+                    error.innerHTML = value
+                    document.getElementById('errors').append(error)
+                });
+                $('#errors').fadeIn('slow')
+                setTimeout(() => {
+                    $('input').css('outline', 'none')
+                    $('#errors').fadeOut('slow')
+                }, 5000);
+            }
+
+        } catch (error) {
+            document.getElementById('errors').innerHTML = ''
+            let err = document.createElement('div')
+            err.classList = 'error'
+            err.innerHTML = 'server error try again later'
+            document.getElementById('errors').append(err)
+            $('#errors').fadeIn('slow')
+            $('.loader').fadeOut()
+            this.languages_data = false
+            setTimeout(() => {
+                $('#errors').fadeOut('slow')
+            }, 3500);
+
+            console.error(error);
+        }
+    },
+    async getSearchImages(search_words) {
+        try {
+            const response = await axios.post(`/Moheb/admin/images/search?page=${this.page}`, {
+                search_words: search_words,
+            },
+            );
+            if (response.data.status === true) {
+                this.images = response.data.data.data
+                this.total = response.data.data.total
+                this.last_page = response.data.data.last_page
+            } else {
                 document.getElementById('errors').innerHTML = ''
                 $.each(response.data.errors, function (key, value) {
                     let error = document.createElement('div')
@@ -433,7 +461,7 @@ createApp({
     async uploadImage(image) {
         $('.loader').fadeIn().css('display', 'flex')
         try {
-            const response = await axios.post(`/Moheb/admin/articles/upload`, {
+            const response = await axios.post(`/Moheb/admin/images/upload`, {
                 img: image,
             },
             {
@@ -664,26 +692,30 @@ createApp({
         })
     },
     chooseImage(imagePath) {
-        this.choosed_img = '/Moheb/dashboard/images/uploads/articles_images/' + imagePath;
+        this.choosed_img = '/Moheb/dashboard/images/uploads/' + imagePath;
     },
     insertImgToArticle () {
-        if (this.choosed_img) {
-            this.insertHTML('<img src="' + this.choosed_img + '" />', this.current_article_id)
-            this.chooseImage = null
-            this.current_article_id = null
-            this.showImages = null
-        }else {
-            document.getElementById('errors').innerHTML = ''
-            let err = document.createElement('div')
-            err.classList = 'error'
-            err.innerHTML = 'Please Choose an image or uploade one'
-            document.getElementById('errors').append(err)
-            $('#errors').fadeIn('slow')
-            $('.loader').fadeOut()
-            setTimeout(() => {
-                $('#errors').fadeOut('slow')
-            }, 3500);
+        if (this.current_article_id) {
+            if (this.choosed_img) {
+                this.insertHTML('<img src="' + this.choosed_img + '" />', this.current_article_id)
+                this.chooseImage = null
+                this.current_article_id = null
+                this.showImages = null
+            }else {
+                document.getElementById('errors').innerHTML = ''
+                let err = document.createElement('div')
+                err.classList = 'error'
+                err.innerHTML = 'Please Choose an image or uploade one'
+                document.getElementById('errors').append(err)
+                $('#errors').fadeIn('slow')
+                $('.loader').fadeOut()
+                setTimeout(() => {
+                    $('#errors').fadeOut('slow')
+                }, 3500);
 
+            }
+        } else {
+            this.previewThumbnail()
         }
 
     }
