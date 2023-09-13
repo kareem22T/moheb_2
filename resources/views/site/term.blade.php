@@ -260,8 +260,8 @@ methods: {
     setLang() {
         this.setCookie('lang', this.current_lang, 30)
         this.getTerm(this.term_id, this.current_lang)
-        if (this.current_lang == '(AR)') {
-            document.body.classList = '(AR)'
+        if (this.current_lang == 'AR') {
+            document.body.classList = 'AR'
         } else {
             document.body.classList = ''
         }
@@ -278,8 +278,8 @@ methods: {
 created() {
     this.getLang().then(() => {
         this.getTerm(this.term_id, this.current_lang)
-        if (this.current_lang == '(AR)') {
-            document.body.classList = '(AR)'
+        if (this.current_lang == 'AR') {
+            document.body.classList = 'AR'
         } 
     })
     this.getUser()

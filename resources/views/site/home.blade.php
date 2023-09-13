@@ -273,8 +273,8 @@ methods: {
         this.setCookie('lang', this.current_lang, 30)
         this.getLatestTerms(this.current_lang)
         this.getLatestArticles(this.current_lang)
-        if (this.current_lang == '(AR)') {
-            document.body.classList = '(AR)'
+        if (this.current_lang == 'AR') {
+            document.body.classList = 'AR'
         } else {
             document.body.classList = ''
         }
@@ -394,8 +394,8 @@ created() {
     this.getLang().then(() => {
         this.getLatestTerms(this.current_lang)
         this.getLatestArticles(this.current_lang)
-        if (this.current_lang == '(AR)') {
-            document.body.classList = '(AR)'
+        if (this.current_lang == 'AR') {
+            document.body.classList = 'AR'
         }
     })
     this.getUser()
