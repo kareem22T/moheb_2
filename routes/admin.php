@@ -22,6 +22,7 @@ Route::middleware(['auth:admin'])->group(function () {
 
     //languages
     Route::get('/languages', [LanguagesController::class, 'preview']);
+    Route::post('/languages', [LanguagesController::class, 'getLanguages']);
     Route::post('/languages/search', [LanguagesController::class, 'search']);
     Route::post('/languages/edit', [LanguagesController::class, 'editLang']);
     Route::post('/languages/delete', [LanguagesController::class, 'delete']);
