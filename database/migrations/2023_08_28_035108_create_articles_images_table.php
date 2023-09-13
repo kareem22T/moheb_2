@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('articles_images', function (Blueprint $table) {
             $table->id();
             $table->string('path');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(time());
         });
     }
 

@@ -16,8 +16,6 @@ class Term extends Model
         'category_id'
     ];
 
-    public $timestamps = false;
-
     // relationships
     public function names()
     {

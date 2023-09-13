@@ -16,8 +16,6 @@ class Article extends Model
         'category_id'
     ];
 
-    public $timestamps = false;
-
     // relationships
     public function titles()
     {

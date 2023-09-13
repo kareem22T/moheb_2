@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('category_id');
             $table->integer('language_id');
+            $table->timestamp('created_at')->default(time());
         });
     }
 

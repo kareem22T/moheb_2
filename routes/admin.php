@@ -14,13 +14,14 @@ Route::middleware(['guest_admin'])->group(function () {
     Route::post('/login', [RegisterController::class, 'login']);
 });
 
+Route::post('/admin/categories/get-languages', [CategoriesController::class, 'getLanguages'])->name('languages.get');
+
 Route::middleware(['auth:admin'])->group(function () {
     Route::get('/', [RegisterController::class, 'ff']);
     Route::get('/logout', [RegisterController::class, 'logout']);
 
     //languages
     Route::get('/languages', [LanguagesController::class, 'preview']);
-    Route::post('/languages', [LanguagesController::class, 'getLanguages']);
     Route::post('/languages/search', [LanguagesController::class, 'search']);
     Route::post('/languages/edit', [LanguagesController::class, 'editLang']);
     Route::post('/languages/delete', [LanguagesController::class, 'delete']);

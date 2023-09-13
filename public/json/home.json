@@ -26,31 +26,31 @@
             "copy": "Powerd by Center de Paris"
         }
     },
-    "ar": {
+    "AR": {
         "nav": {
-            "link_1": "About",
-            "link_2": "Contact",
-            "welcome": "welcome"
+            "link_1": "من نحن",
+            "link_2": "تواصل معنا",
+            "welcome": "مرحبا"
         },
         "alert_bio": {
-            "welcome": "Welcome!",
+            "welcome": "مرحبا!",
             "title": "Bio About Our Team And The word of the founder of our website",
             "more": "More About Us >>"
         },
         "sections": {
-            "view_all": "View All",
-            "football": "Football",
-            "most_popular": "Most Popular Sports",
-            "last_difinations": "Last Updated Difinations",
-            "last_news": "Last News"
+            "view_all": "عرض المزيد",
+            "football": "كرة القدم",
+            "most_popular": "الرياضات الاكثر شيوعا",
+            "last_difinations": "اخر الكلمات المضافة",
+            "last_news": "اخر الاخبار"
         },
         "footer": {
             "nav": {
-                "link_1": "Privacy Policy",
-                "link_2": "Cookie Policy",
-                "link_3": "Contact Us"
+                "link_1": "سياسة الخصوصية",
+                "link_2": "سياسة ملفات الارتباط",
+                "link_3": "تواصل معنا"
             },
-            "copy": "Powerd by Center de Paris"
+            "copy": "مدعوم من مركز باريس"
         }
     }
 }
