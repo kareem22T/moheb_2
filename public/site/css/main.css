@@ -673,7 +673,7 @@ textarea:focus {
     margin-top: 2rem;
 }
 
-.ar .football {
+.AR .football {
     direction: rtl;
 }
 
@@ -712,7 +712,7 @@ textarea:focus {
     margin-top: 2rem;
 }
 
-.ar .most-popular {
+.AR .most-popular {
     direction: rtl;
 }
 
@@ -751,7 +751,7 @@ textarea:focus {
     margin-top: 2rem;
 }
 
-.ar .latest-terms {
+.AR .latest-terms {
     direction: rtl;
 }
 
@@ -761,11 +761,11 @@ textarea:focus {
     background: #e7edf8;
 }
 
-.ar .latest-articles {
+.AR .latest-articles {
     direction: rtl;
 }
 
-.ar .latest-articles .foot {
+.AR .latest-articles .foot {
     direction: ltr;
 }
 
@@ -870,8 +870,8 @@ textarea:focus {
     margin-top: 2rem;
 }
 
-.ar #term article,
-.ar #article article {
+.AR #term article,
+.AR #article article {
     direction: rtl;
 }
 
@@ -895,8 +895,8 @@ textarea:focus {
     grid-column: 1/ span 2;
 }
 
-.ar #term article,
-.ar #article article {
+.AR #term article,
+.AR #article article {
     grid-column: 2/ span 2;
 }
 
