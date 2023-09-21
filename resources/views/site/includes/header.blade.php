@@ -20,14 +20,14 @@
             </div>
             <div style="display: flex; justify-content: center; align-items: center; gap: 10px">
                 <div class="profile" v-if="user">
-                    <div class="text">
+                    <div class="text" @click="showProfileMore == true ? showProfileMore = false : showProfileMore = true">
                         <p>Welcome</p>
                         <h4>@{{user.user.email}} <i class="fa fa-angle-down"></i></h4>
                     </div>
-                    <div class="img">
+                    <div class="img" @click="showProfileMore == true ? showProfileMore = false : showProfileMore = true">
                         <img src="{{ asset('/public/site/imgs/profile.jpg') }}" alt="profile images">
                     </div>
-                    <div class="profile-more">
+                    <div class="profile-more" v-if="showProfileMore">
                         <a href="">Favorite</a>
                         <a href="{{ route('site.logout') }}">Logot</a>
                     </div>

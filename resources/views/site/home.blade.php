@@ -162,6 +162,7 @@ data() {
         articles: null,
         page_translations: null,
         page_content: this.page_translations ? this.page_translations[this.current_lang] : '',
+        showProfileMore: false,
     }
 },
 methods: {

@@ -35,7 +35,7 @@
                 <img src="{{ asset('/public/site/imgs/lock-solid.svg') }}" alt="lock icon">
             </div>
             <button type="submit" class="button" @click="registerMethod(this.email, this.phone, this.dob, this.password, this.password_confirmation)">Register Account</button>
-            <p>By clicking here and continuing, <br> I agree to the <router-link to="/terms">Terms</router-link> of Service and <router-link to="/privacy-policy">Privacy Policy</router-link></p>
+            {{-- <p>By clicking here and continuing, <br> I agree to the <router-link to="/terms">Terms</router-link> of Service and <router-link to="/privacy-policy">Privacy Policy</router-link></p> --}}
         </form>
     </div>
 </main>
@@ -118,6 +118,9 @@ methods: {
             console.error(error);
         }
     }
+},
+created() {
+    $('.loader').fadeOut()
 },
 }).mount('#register')
 </script>

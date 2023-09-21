@@ -102,7 +102,8 @@ data() {
         article_data: null,
         user: null,
         languages_data: null,
-        current_lang: "EN"
+        current_lang: "EN",
+        showProfileMore: false,
     }
 },
 methods: {

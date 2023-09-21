@@ -22,7 +22,6 @@
                 <img src="{{ asset('/public/site/imgs/lock-solid.svg') }}" alt="lock icon">
             </div>
             <button type="submit" class="button" @click="login(this.phone, this.password)">Login</button>
-            <p>Forgot Your Password? <router-link to="/forgot-password">Click Here</router-link></p>
         </form>
     </div>
 </main>
@@ -101,6 +100,9 @@ methods: {
             console.error(error);
         }
     }
+},
+created() {
+    $('.loader').fadeOut()
 },
 }).mount('#login')
 </script>
